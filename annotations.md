@@ -45,7 +45,7 @@ Used for automatic dependency injection. When I mark a constructor, method, or f
 
 If there are multiple beans of the same type, I can use `@Qualifier` to specify which bean to inject.
 
-Mark with `@Primary` to indicate the primary bean when there are multiple beans of the same type.
+Mark with `@Primary` to indicate the primary bean when there are multiple beans of the same type. `@Qualifier` overrides `@Primary`.
 
 
 ### `@Qualifier`
