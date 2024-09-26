@@ -38,7 +38,7 @@ Annotations used to define and manage the configuration and beans within the Spr
 This is a specialized `@Component` for configuration classes. By marking a class with `@Configuration`, I'm telling Spring that this class contains configuration and setup instructions, such as bean definitions and other settings that the application needs to run properly.
 
 ### `@Bean`
-Used to define a bean in a Spring application. A bean is an object that is managed by the Spring container (IOC). By using `@Bean`, I can specify how to create an instance of an object that Spring will manage and supply wherever it's needed in the application. Good to use when Spring needs to instantiate a class that I don't have control over, such as a third-party library.
+Used to define a bean in a Spring application. A bean is an object that is managed by the Spring container (IOC). By using `@Bean`, I can specify how to create an instance of an object that Spring will manage and supply wherever it's needed in the application. Good to use when Spring needs to instantiate a class that I don't have control over, such as a third-party library. `@Bean` can have a name attribute to specify the name of the bean.
 
 ### `@Autowired`
 Used for automatic dependency injection. When I mark a constructor, method, or field with `@Autowired`, Spring will automatically provide the required dependencies. This helps reduce boilerplate code by eliminating the need to manually instantiate dependent objects. Spring scans for `@Compontents` matching the type of the dependency and injects them.
