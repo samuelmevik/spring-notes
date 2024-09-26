@@ -73,3 +73,6 @@ Is an annotation that enables Spring Security in a Spring Boot application. By a
 ### `@SpringBootApplication`
 Composed of the following annotations: `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. This annotation is used to mark the main class of a Spring Boot application, indicating that this class is the entry point for the application and that it should be scanned for components and auto-configured by Spring Boot.
 
+### `@Lazy`
+`@Lazy` is used to indicate that a bean should be lazily initialized. By applying this annotation to a bean definition, I can tell Spring to only create an instance of the bean when it's first requested, rather than creating it eagerly at startup.
+
