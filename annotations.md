@@ -47,6 +47,11 @@ If there are multiple beans of the same type, I can use `@Qualifier` to specify 
 
 Mark with `@Primary` to indicate the primary bean when there are multiple beans of the same type. `@Qualifier` overrides `@Primary`.
 
+### `@Lazy`
+`@Lazy` is used to indicate that a bean should be lazily initialized. By applying this annotation to a bean definition, I can tell Spring to only create an instance of the bean when it's first requested, rather than creating it eagerly at startup.
+
+spring.main.lazy-initialization=true can be set in the application.properties file to enable lazy initialization for all beans. Makes sense when developing large applications where not all beans are needed at startup.
+
 
 ### `@Qualifier`
 Used to specify which bean to inject when there are multiple beans of the same type. By applying `@Qualifier` to a field or parameter, I can indicate the name of the bean that should be injected. The name should match the value of the `@Bean` annotation that defines the bean but the first letter should be lowercase.
@@ -73,8 +78,5 @@ Is an annotation that enables Spring Security in a Spring Boot application. By a
 ### `@SpringBootApplication`
 Composed of the following annotations: `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. This annotation is used to mark the main class of a Spring Boot application, indicating that this class is the entry point for the application and that it should be scanned for components and auto-configured by Spring Boot.
 
-### `@Lazy`
-`@Lazy` is used to indicate that a bean should be lazily initialized. By applying this annotation to a bean definition, I can tell Spring to only create an instance of the bean when it's first requested, rather than creating it eagerly at startup.
-
-spring.main.lazy-initialization=true can be set in the application.properties file to enable lazy initialization for all beans. Makes sense when developing large applications where not all beans are needed at startup.
-
+### `@Scrop`
+I can use this annotation to specify the scope of a bean. The scope determines the lifecycle and visibility of a bean instance. Common scopes include `singleton`, `prototype`, `request`, `session`, and `application`. The default scope is `singleton`.
