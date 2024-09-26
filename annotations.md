@@ -41,7 +41,15 @@ This is a specialized `@Component` for configuration classes. By marking a class
 Used to define a bean in a Spring application. A bean is an object that is managed by the Spring container (IOC). By using `@Bean`, I can specify how to create an instance of an object that Spring will manage and supply wherever it's needed in the application.
 
 ### `@Autowired`
-Used for automatic dependency injection. When I mark a constructor, method, or field with `@Autowired`, Spring will automatically provide the required dependencies. This helps reduce boilerplate code by eliminating the need to manually instantiate dependent objects.
+Used for automatic dependency injection. When I mark a constructor, method, or field with `@Autowired`, Spring will automatically provide the required dependencies. This helps reduce boilerplate code by eliminating the need to manually instantiate dependent objects. Spring scans for `@Compontents` matching the type of the dependency and injects them.
+
+If there are multiple beans of the same type, I can use `@Qualifier` to specify which bean to inject.
+
+Mark with `@Primary` to indicate the primary bean when there are multiple beans of the same type.
+
+
+### `@Qualifier`
+Used to specify which bean to inject when there are multiple beans of the same type. By applying `@Qualifier` to a field or parameter, I can indicate the name of the bean that should be injected. The name should match the value of the `@Bean` annotation that defines the bean but the first letter should be lowercase.
 
 ## JPA
 
@@ -58,4 +66,10 @@ By applying this annotation, I can ensure that a sequence of operations is execu
 
 ### `@EnableWebSecurity`
 Is an annotation that enables Spring Security in a Spring Boot application. By applying this annotation to a configuration class, I can customize the security configuration through method overrides. Allowing me to define security rules such as authentication mechanisms, URL restrictions, and filter chains.
+
+### `@Value`
+`@Value` is used to inject values from properties files or environment variables into Spring beans. By using this annotation, I can externalize configuration properties and access them in my application code.
+
+### `@SpringBootApplication`
+Composed of the following annotations: `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. This annotation is used to mark the main class of a Spring Boot application, indicating that this class is the entry point for the application and that it should be scanned for components and auto-configured by Spring Boot.
 
