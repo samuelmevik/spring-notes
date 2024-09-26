@@ -76,3 +76,5 @@ Composed of the following annotations: `@Configuration`, `@EnableAutoConfigurati
 ### `@Lazy`
 `@Lazy` is used to indicate that a bean should be lazily initialized. By applying this annotation to a bean definition, I can tell Spring to only create an instance of the bean when it's first requested, rather than creating it eagerly at startup.
 
+spring.main.lazy-initialization=true can be set in the application.properties file to enable lazy initialization for all beans. Makes sense when developing large applications where not all beans are needed at startup.
+
