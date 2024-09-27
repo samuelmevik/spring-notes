@@ -20,3 +20,23 @@ JPA (Jakarta Persistence API) is a specification, defined by a set of interfaces
 
 1. Standardizes the way I interact with databases. Not vendor locked.
 2. Maintain portable, flexible code by coding to the JPA standard.
+
+## JPA Repository and EntityManager
+
+If in need of `low-level` control and flexibility, use the `EntityManager`. If I want to write less code and have more `high-level` control, use the `JPA Repository`.
+
+### EntityManager
+
+Good When:
+- Need low level control over the database operations and want to write custom queries.
+- Provides low-level access to JPA and work directly with JPA entities.
+- Complex queries that required advanced features such as native SQL queries or stored procedure calls.
+- When you have custom requirements that are not easily managed by higher level abstractions.
+
+### JPA Repository
+
+Good When:
+- Provides commonly used CRUD operations out of the box, reducing the amount of code you need to write.
+- Additional features such as pagination...
+- Generate queries based on method names.
+- Can also create custom queries using `@Query` annotation.
