@@ -13,6 +13,24 @@ This is a `@Component` used for web MVC controllers. In a web application, class
 ### `@Service`
 `@Service` is a `@Component` for service layer components. Classes marked with this annotation contain the business logic of the application—the core operations and calculations that are central to its functionality.
 
+### `@ExceptionHandler`
+`@ExceptionHandler` is used to define methods that handle exceptions thrown by request mapping methods. By applying this annotation to a method in a `@Controller` or `@RestController`, I can specify how to handle exceptions that occur during the execution of a request mapping method.
+
+```java
+    @ExceptionHandler
+    public ResponseEntity<StudentErrorResponse> handleStudentNotFoundException(StudentNotFoundException e) {
+        var status = HttpStatus.NOT_FOUND;
+        StudentErrorResponse response = StudentErrorResponse.builder()
+                .status(status.value())
+                .message(e.getMessage())
+                .timeStamp(System.currentTimeMillis())
+                .build();
+        return new ResponseEntity<>(response, status);
+    }
+```
+
+
+
 ### `@Repository`
 This annotation is a `@Component` for data access layer components. When I have a class that interacts with the database (fetching or saving data), I use `@Repository` to indicate its role. This also enables Spring to translate database exceptions into a consistent, more manageable form.
 
