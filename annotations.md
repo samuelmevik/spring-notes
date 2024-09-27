@@ -33,10 +33,6 @@ This is a `@Component` used for web MVC controllers. In a web application, class
 `@ControllerAdvice` is an annotation used to define global exception handlers that apply to all `@Controller` classes. By applying this annotation to a class, I can define methods that handle exceptions thrown by any `@RequestMapping` method in any `@Controller` class. For Restful services, I can use `@RestControllerAdvice`.
 
 
-
-### `@Repository`
-This annotation is a `@Component` for data access layer components. When I have a class that interacts with the database (fetching or saving data), I use `@Repository` to indicate its role. This also enables Spring to translate database exceptions into a consistent, more manageable form.
-
 ## Web and RESTful Services Annotations
 
 ### `@RestController`
@@ -78,6 +74,9 @@ spring.main.lazy-initialization=true can be set in the application.properties fi
 Used to specify which bean to inject when there are multiple beans of the same type. By applying `@Qualifier` to a field or parameter, I can indicate the name of the bean that should be injected. The name should match the value of the `@Bean` annotation that defines the bean but the first letter should be lowercase.
 
 ## JPA
+
+### `@Repository`
+This annotation is a `@Component` for data access layer components. When I have a class that interacts with the database (fetching or saving data), I use `@Repository` to indicate its role. This also enables Spring to translate database exceptions into a consistent, more manageable form.
 
 ### `@Id`
 `@Id` is used to mark a field as the primary key of an entity. I can specify the strategy for generating primary key values by using `@GeneratedValue` in conjunction with `@Id`.
