@@ -29,6 +29,9 @@ This is a `@Component` used for web MVC controllers. In a web application, class
     }
 ```
 
+### `@ControllerAdvice`
+`@ControllerAdvice` is an annotation used to define global exception handlers that apply to all `@Controller` classes. By applying this annotation to a class, I can define methods that handle exceptions thrown by any `@RequestMapping` method in any `@Controller` class. For Restful services, I can use `@RestControllerAdvice`.
+
 
 
 ### `@Repository`
