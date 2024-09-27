@@ -40,3 +40,7 @@ Good When:
 - Additional features such as pagination...
 - Generate queries based on method names.
 - Can also create custom queries using `@Query` annotation.
+
+## JPA Query Language (JPQL)
+
+Query language for retrieving entities from the database. It is similar to SQL but operates on `entity name` and `entity fields` as opposed to the direct table names and table columns. Normal keywords like `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY` are used. 
