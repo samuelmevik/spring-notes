@@ -107,5 +107,5 @@ Is an annotation that enables Spring Security in a Spring Boot application. By a
 ### `@SpringBootApplication`
 Composed of the following annotations: `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`. This annotation is used to mark the main class of a Spring Boot application, indicating that this class is the entry point for the application and that it should be scanned for components and auto-configured by Spring Boot.
 
-### `@Scrop`
+### `@Scope`
 I can use this annotation to specify the scope of a bean. The scope determines the lifecycle and visibility of a bean instance. Common scopes include `singleton`, `prototype`, `request`, `session`, and `application`. The default scope is `singleton`.
