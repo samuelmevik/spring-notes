@@ -58,6 +58,11 @@ Used to specify which bean to inject when there are multiple beans of the same t
 
 ## JPA
 
+### `@Id`
+`@Id` is used to mark a field as the primary key of an entity. I can specify the strategy for generating primary key values by using `@GeneratedValue` in conjunction with `@Id`.
+
+It is possible to use a custom primary key generator by implementing the `IdentifierGenerator` interface and specifying the generator class in the `@GeneratedValue` annotation.
+
 ### `@Entity`
 `@Entity` is used to mark a class as a JPA entity, which means it will be mapped to a database table. By annotating a class with `@Entity`, I'm telling JPA to treat this class as a persistent entity, allowing me to save, update, and query instances of this class in the database.
 
@@ -67,11 +72,11 @@ Used to specify which bean to inject when there are multiple beans of the same t
 ### `@Column`
 `@Column` is used to specify the details of a column in a database table that an entity field will be mapped to. By applying this annotation to a field in an entity class, I can define the column name, type, length, and other properties of the database column that the field represents. If the column name is the same as the field name, meaning that if the is a refactoring of the field name, the column name will be updated as well, breaking things.
 
+### `@Transactional`
+By applying this annotation, I can ensure that a sequence of operations is executed within a database transaction, providing consistency and rollback capabilities. When I mark a method with `@Transactional`, Spring will manage the transaction boundaries, committing the transaction if the method completes successfully and rolling it back if an exception occurs.
+
 
 ## Other
-
-### `@Transactional`
-By applying this annotation, I can ensure that a sequence of operations is executed within a database transaction, providing consistency and rollback capabilities.
 
 ### `@EnableWebSecurity`
 Is an annotation that enables Spring Security in a Spring Boot application. By applying this annotation to a configuration class, I can customize the security configuration through method overrides. Allowing me to define security rules such as authentication mechanisms, URL restrictions, and filter chains.
