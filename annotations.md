@@ -62,7 +62,11 @@ Used to specify which bean to inject when there are multiple beans of the same t
 `@Entity` is used to mark a class as a JPA entity, which means it will be mapped to a database table. By annotating a class with `@Entity`, I'm telling JPA to treat this class as a persistent entity, allowing me to save, update, and query instances of this class in the database.
 
 ### `@Table`
-`@Table` is used to specify the details of the database table that an entity will be mapped to. By applying this annotation, I can define the table name, schema, and other properties of the database table that the entity represents.
+`@Table` is used to specify the details of the database table that an entity will be mapped to. By applying this annotation, I can define the table name, schema, and other properties of the database table that the entity represents. If the table name is the same as the entity name, meaning that if the is a refactoring of the entity name, the table name will be updated as well, breaking things.
+
+### `@Column`
+`@Column` is used to specify the details of a column in a database table that an entity field will be mapped to. By applying this annotation to a field in an entity class, I can define the column name, type, length, and other properties of the database column that the field represents. If the column name is the same as the field name, meaning that if the is a refactoring of the field name, the column name will be updated as well, breaking things.
+
 
 ## Other
 
