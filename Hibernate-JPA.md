@@ -28,6 +28,7 @@ If in need of `low-level` control and flexibility, use the `EntityManager`. If I
 ### EntityManager
 
 Good When:
+
 - Need low level control over the database operations and want to write custom queries.
 - Provides low-level access to JPA and work directly with JPA entities.
 - Complex queries that required advanced features such as native SQL queries or stored procedure calls.
@@ -36,6 +37,7 @@ Good When:
 ### JPA Repository
 
 Good When:
+
 - Provides commonly used CRUD operations out of the box, reducing the amount of code you need to write.
 - Additional features such as pagination...
 - Generate queries based on method names.
@@ -43,4 +45,11 @@ Good When:
 
 ## JPA Query Language (JPQL)
 
-Query language for retrieving entities from the database. It is similar to SQL but operates on `entity name` and `entity fields` as opposed to the direct table names and table columns. Normal keywords like `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY` are used. 
+Query language for retrieving entities from the database. It is similar to SQL but operates on `entity name` and `entity fields` as opposed to the direct table names and table columns. Normal keywords like `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY` are used.
+
+Example of retrieving a student by name:
+```java
+TypedQuery<Student> query = entityManager.createQuery("SELECT s from Student s WHERE s.name=:name", Student.class);
+query.setParameter("name", name);
+List<Student> students = query.getResultList();
+```
