@@ -1,8 +1,6 @@
 # Spring Annotations Overview
 
-## Stereotype Annotations
-
-These annotations indicate the role or layer of a class within the application.
+## Core Annotations
 
 ### `@Component`
 `@Component` is a generic stereotype for any Spring-managed component. When I mark a class with this annotation, I'm telling Spring to create an instance of this class and manage it, making it available for dependency injection throughout the application.
@@ -37,6 +35,9 @@ This is a `@Component` used for web MVC controllers. In a web application, class
 
 ### `@RestController`
 `@RestController` is a `@Controller` for RESTful web services. Classes annotated with this handle web requests and return data directly (like JSON), rather than rendering a view. This is useful for building APIs that clients can consume.
+
+### `@RestControllerAdvice`
+`@RestControllerAdvice` is a specialized version of `@ControllerAdvice` that applies to `@RestController` classes. By applying this annotation to a class, I can define global exception handlers that apply to all `@RestController` classes, allowing me to handle exceptions thrown by any RESTful web service method.
 
 ### `@RequestMapping`
 Used to map HTTP requests to handler methods in controllers. By applying this annotation at the class or method level, I can define the URLs and HTTP methods that the controller methods will handle.
@@ -118,8 +119,29 @@ It is possible to use a custom primary key generator by implementing the `Identi
 `@Column` is used to specify the details of a column in a database table that an entity field will be mapped to. By applying this annotation to a field in an entity class, I can define the column name, type, length, and other properties of the database column that the field represents. If the column name is the same as the field name, meaning that if the is a refactoring of the field name, the column name will be updated as well, breaking things.
 
 ### `@Transactional`
-By applying this annotation, I can ensure that a sequence of operations is executed within a database transaction, providing consistency and rollback capabilities. When I mark a method with `@Transactional`, Spring will manage the transaction boundaries, committing the transaction if the method completes successfully and rolling it back if an exception occurs.
+By applying this annotation, I can ensure that a sequence of operations is executed within a database transaction, providing consistency and rollback capabilities. When I mark a method with `@Transactional`, Spring will manage the transaction boundaries, committing the transaction if the method completes successfully and rolling it back if an exception occurs. As soon as i want to perform a database post or put operation, I should use `@Transactional`.
 
+### `@OneToMany`, `@ManyToOne`, `@OneToOne`, `@ManyToMany`
+These annotations are used to define relationships between entities in a JPA application. By applying these annotations to fields in entity classes, I can specify how entities are related to each other.
+
+#### `Uni-directional` vs `Bi-directional` relationships
+In a uni-directional relationship, one entity has a reference to another entity, but the other entity does not have a reference back. In a bi-directional relationship, both entities have references to each other, allowing navigation in both directions.
+
+#### `CascadeType`
+Defines how operations on one entity should affect related entities. By default, no operations are cascaded.
+
+If I want to specify precisely I can use the following:
+
+```java
+@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, ...})
+```
+
+- `Persist`: When a new entity is persisted, related entities are also persisted.
+- `Merge`: When an entity is merged, related entities are also merged.
+- `Remove`: When an entity is removed, related entities are also removed.
+- `Refresh`: When an entity is refreshed, related entities are also refreshed.
+- `Detach`: When an entity is detached (not associated w/ session), related entities are also detached.
+- `All`: All of the above cascade types.
 
 ## Other
 
