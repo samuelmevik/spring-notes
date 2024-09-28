@@ -47,6 +47,31 @@ Specialized versions of `@RequestMapping` for specific HTTP methods.
 ### `@RequestBody`
 `@RequestBody` is an annotation used to bind the HTTP request body to a Java object. When a client sends data to the server, such as JSON or XML, @RequestBody allows me to directly map this data to a method parameter in a controller.
 
+### `@PathVariable`
+`@PathVariable` is used to extract values from the URI path and map them to method parameters in a controller. By applying this annotation to a method parameter, I can specify which part of the URI path should be bound to that parameter.
+
+Example:
+```java
+
+@DeleteMapping(path = "{id}")
+public void deleteEmployee(@PathVariable Long id) {
+    employeeService.deleteEmployee(id);
+}
+
+```       
+
+### `@RequestParam`
+`@RequestParam` is used to extract query parameters from the URL and map them to method parameters in a controller. By applying this annotation to a method parameter, I can specify which query parameter should be bound to that parameter.
+
+Example:
+```java
+@GetMapping
+public List<Employee> getEmployees(@RequestParam String department) {
+    return employeeService.getEmployeesByDepartment(department);
+}
+```
+
+
 ## Configuration Annotations
 
 Annotations used to define and manage the configuration and beans within the Spring application.
